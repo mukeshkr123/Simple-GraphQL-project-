@@ -16,7 +16,14 @@ const GetUsers = () => {
   return (
     <div>
       {users?.map((val) => {
-        return <h1>{val.firstName}</h1>;
+        return (
+          <>
+            <h1>
+              {val.firstName} {""} {val.lastName}
+            </h1>
+            <h4>{val.email}</h4>
+          </>
+        );
       })}
     </div>
   );
