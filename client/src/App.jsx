@@ -7,6 +7,7 @@ import {
   from,
 } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
+import GetUsers from "./componets/GetUsers";
 
 const errorLink = onError(({ graphqlErrors, networkErrors }) => {
   if (graphqlErrors) {
@@ -29,8 +30,7 @@ const client = new ApolloClient({
 const App = () => {
   return (
     <ApolloProvider client={client}>
-      {/* Your app content goes here */}
-      App
+      <GetUsers />
     </ApolloProvider>
   );
 };
