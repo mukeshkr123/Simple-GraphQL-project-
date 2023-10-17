@@ -1,11 +1,14 @@
 // Import required modules and dependencies
 const express = require("express");
 const { graphqlHTTP } = require("express-graphql");
+const cors = require("cors");
 const schema = require("./Schemas/index");
 
 // Create an Express application
 const app = express();
 const PORT = 4040;
+//cors
+app.use(cors());
 
 // Define a route for handling GraphQL requests
 app.use(
