@@ -1,4 +1,3 @@
-````markdown
 # Getting Started with GraphQL and Building a GraphQL Server from Scratch
 
 This README will guide you through the basics of GraphQL and how to set up a GraphQL server from scratch. GraphQL is a query language for your API, and it's a powerful tool for fetching the data you need in a flexible and efficient way.
@@ -28,6 +27,7 @@ Before you begin, ensure you have Node.js and npm (Node Package Manager) install
    mkdir my-graphql-server
    cd my-graphql-server
    ```
+
 ````
 
 2. Initialize your project:
@@ -103,6 +103,5 @@ In the example above, we defined a simple GraphQL schema with a single query cal
 
 Explore these resources to deepen your understanding of GraphQL and building more complex GraphQL servers.
 
-```
 
-```
+````
