@@ -2,66 +2,61 @@ import React, { useState } from "react";
 import { CREATE_USER_MUTATION } from "../GraphQl/Mutations";
 import { useMutation } from "@apollo/client";
 
-const AddUser = () => {
+function Form() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleAddUser = () => {};
+  const [createUser, { error }] = useMutation(CREATE_USER_MUTATION);
 
+  const addUser = () => {
+    createUser({
+      variables: {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password,
+      },
+    });
+
+    if (error) {
+      console.log(error);
+    }
+  };
   return (
     <div>
-      <h1>Add User</h1>
-      <form>
-        <div>
-          <label>First Name:</label>
-          <input
-            type="text"
-            placeholder=" Enter First Name"
-            onChange={(e) => {
-              setFirstName(e.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <label>Last Name:</label>
-          <input
-            type="text"
-            placeholder="Enter Last Name"
-            name="lastName"
-            onChange={(e) => {
-              setLastName(e.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter your email address"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            placeholder="Enter your password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-        </div>
-        <button type="button" onClick={handleAddUser}>
-          Create User
-        </button>
-      </form>
+      <input
+        type="text"
+        placeholder="First Name"
+        onChange={(e) => {
+          setFirstName(e.target.value);
+        }}
+      />
+      <input
+        type="text"
+        placeholder="Last Name"
+        onChange={(e) => {
+          setLastName(e.target.value);
+        }}
+      />
+      <input
+        type="text"
+        placeholder="Email"
+        onChange={(e) => {
+          setEmail(e.target.value);
+        }}
+      />
+      <input
+        type="text"
+        placeholder="Password"
+        onChange={(e) => {
+          setPassword(e.target.value);
+        }}
+      />
+      <button onClick={addUser}> Create User</button>
     </div>
   );
-};
+}
 
-export default AddUser;
+export default Form;
