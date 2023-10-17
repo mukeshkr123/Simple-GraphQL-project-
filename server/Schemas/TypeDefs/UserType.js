@@ -1,13 +1,7 @@
 const graphql = require("graphql");
-const {
-  GraphQLObjectType,
-  GraphQLSchema,
-  GraphQLInt,
-  GraphQLString,
-  GraphQLList,
-} = graphql;
-const { graphqlHTTP } = require("express-graphql");
+const { GraphQLObjectType, GraphQLInt, GraphQLString, GraphQLList } = graphql;
 
+// Define the UserType, which represents a User in your GraphQL schema
 const UserType = new GraphQLObjectType({
   name: "User",
   fields: () => ({
@@ -19,4 +13,5 @@ const UserType = new GraphQLObjectType({
   }),
 });
 
+// Export the UserType for use in your GraphQL schema
 module.exports = UserType;
